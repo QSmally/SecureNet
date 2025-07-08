@@ -1,0 +1,3 @@
+[submodule "PgpCore"]
+	path = PgpCore
+	url = git@github.com:mattosaurus/PgpCore.git

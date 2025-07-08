@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecureNet", "Sources\SecureNet.csproj", "{83AC928A-8906-4098-A944-43795BDB359C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example", "Example\Example.csproj", "{5FEEBD35-02D4-47E1-8928-8C4EB8F2A146}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{83AC928A-8906-4098-A944-43795BDB359C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83AC928A-8906-4098-A944-43795BDB359C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83AC928A-8906-4098-A944-43795BDB359C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83AC928A-8906-4098-A944-43795BDB359C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FEEBD35-02D4-47E1-8928-8C4EB8F2A146}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FEEBD35-02D4-47E1-8928-8C4EB8F2A146}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FEEBD35-02D4-47E1-8928-8C4EB8F2A146}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FEEBD35-02D4-47E1-8928-8C4EB8F2A146}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
