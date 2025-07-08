@@ -42,7 +42,7 @@ using SecureNet;
 `Task ManifestSigning.Guard<T>(string publicKeyResource, FileInfo manifest, Func<string, bool>? manifestCallback = null);`
 
 ```cs
-await ManifestSigning.Guard<Program>("RootNamespace.public-key.pgp", "manifest.asc");
+await ManifestSigning.Guard<Program>("RootNamespace.public-key.pgp", new FileInfo("manifest.asc"));
 ```
 
 `RootNamespace.csproj`:
@@ -59,5 +59,9 @@ await ManifestSigning.Guard<Program>("RootNamespace.public-key.pgp", "manifest.a
 
 ```cs
 var publicKey = " ... "; // compile-time property or just pasted in
-await ManifestSigning.Guard<Program>(publicKey, "manifest.asc");
+await ManifestSigning.Guard(publicKey, new FileInfo("manifest.asc"));
 ```
+
+## Example
+
+Provided is an `Example/` project.
