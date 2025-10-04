@@ -4,11 +4,15 @@ using SecureNet;
 
 Console.WriteLine("A good signature is expected");
 
-await ManifestSigning.Guard<Program>("Example.public-key.pgp", new FileInfo("manifest.txt.asc"), Verification.Verify);
+await ManifestSigning.Guard<Program, string>("Example.public-key.pgp", new FileInfo("manifest.txt.asc"), verifyCallback: Verification.Verify);
 
-Console.WriteLine("Good; a bad signature is expected");
+Console.WriteLine("A good signature is expected");
 
-await ManifestSigning.Guard("""
+await ManifestSigning.Guard<Program, string>("Example.public-key.pgp", "Example.manifest.txt.asc", verifyCallback: Verification.Verify);
+
+Console.WriteLine("A bad signature is expected");
+
+await ManifestSigning.Guard<string>("""
                              -----BEGIN PGP PUBLIC KEY BLOCK-----
 
                              mDMEZ9RAVxYJKwYBBAHaRw8BAQdAL50TjmI/V+43qtcgYRajZ9bwAE9QTr0bOId2
@@ -26,6 +30,6 @@ await ManifestSigning.Guard("""
                              WQhkp3LlWcxxbOTqTVMxAw==
                              =s7Eo
                              -----END PGP PUBLIC KEY BLOCK-----
-                             """, new FileInfo("manifest.txt.asc.bad"), Verification.Verify);
+                             """, new FileInfo("manifest.txt.asc.bad"), verifyCallback: Verification.Verify);
 
-Console.WriteLine("Bad; this should not happen");
+Console.WriteLine("This message should never be shown");

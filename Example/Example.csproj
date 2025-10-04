@@ -13,6 +13,7 @@
 
     <ItemGroup>
         <EmbeddedResource Include="public-key.pgp" />
+        <EmbeddedResource Include="manifest.txt.asc" />
     </ItemGroup>
 
 </Project>

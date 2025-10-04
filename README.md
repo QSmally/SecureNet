@@ -30,8 +30,11 @@ $ gpg --output public-key.pgp --armor --export <email>
 $ gpg --clear-sign <manifest file>
 ```
 
-It's intended to call `ManifestSigning.Guard` as the first subroutine in the application. The
-following sections explain the different call variations.
+It's intended to call `ManifestSigning.Guard` as the first subroutine in the application.
+Alternatively, SecureNet can be used to decode runtime data (like a basic secure enclave) which must
+be verified for authenticity.
+
+The following sections explain the different call variations.
 
 ```cs
 using SecureNet;
@@ -39,10 +42,10 @@ using SecureNet;
 
 ### Embedded resource file
 
-`Task ManifestSigning.Guard<T>(string publicKeyResource, FileInfo manifest, Func<string, bool>? manifestCallback = null);`
+`Task<T2> ManifestSigning.Guard<T1, T2>(string publicKeyResource, FileInfo manifest, Func<string, T2>? parseCallback = null, Func<T2, bool>? verifyCallback = null);`
 
 ```cs
-await ManifestSigning.Guard<Program>("RootNamespace.public-key.pgp", new FileInfo("manifest.asc"));
+await ManifestSigning.Guard<Program, string>("RootNamespace.public-key.pgp", new FileInfo("manifest.asc"));
 ```
 
 `RootNamespace.csproj`:
@@ -55,11 +58,11 @@ await ManifestSigning.Guard<Program>("RootNamespace.public-key.pgp", new FileInf
 
 ### Compile-time property
 
-`Task ManifestSigning.Guard(string publicKey, FileInfo manifest, Func<string, bool>? manifestCallback = null);`
+`Task<T> ManifestSigning.Guard<T>(string publicKey, FileInfo manifest, Func<string, T>? parseCallback = null, Func<T, bool>? verifyCallback = null);`
 
 ```cs
 var publicKey = " ... "; // compile-time property or just pasted in
-await ManifestSigning.Guard(publicKey, new FileInfo("manifest.asc"));
+await ManifestSigning.Guard<string>(publicKey, new FileInfo("manifest.asc"));
 ```
 
 ## Example
