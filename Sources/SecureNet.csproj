@@ -7,7 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\PgpCore\PgpCore\PgpCore.csproj" />
+        <ProjectReference Include="..\Pgp\PgpCore\PgpCore.csproj" />
     </ItemGroup>
 
 </Project>

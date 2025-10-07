@@ -1,0 +1,2 @@
+mattosaurus/PgpCore
+- PgpCore.csproj: removed assembly signing in release mode
